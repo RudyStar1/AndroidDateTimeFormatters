@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.chrono.Chronology;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
@@ -28,6 +29,8 @@ public final class AndroidDateTimeFormatter {
      */
     @NonNull
     public static DateTimeFormatter ofLocalizedTime(@NonNull Context context) {
+        Chronology.getAvailableChronologies();
+
         DateFormat legacyFormat = android.text.format.DateFormat.getTimeFormat(context);
 
         if (legacyFormat instanceof SimpleDateFormat) {
